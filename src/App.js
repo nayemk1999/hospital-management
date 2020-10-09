@@ -8,8 +8,7 @@ import {
 import Home from './components/Home/Home/Home';
 import Appointment from './components/Appointment/Appointment/Appointment';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
-
-
+import Login from './components/Login/Login/Login';
 
 export const UserContext = createContext();
 
@@ -26,7 +25,7 @@ function App() {
             <Dashboard></Dashboard>
           </Route>
           <Route path="/login">
-            
+            <Login></Login>
           </Route>
           <Route exact path="/">
             <Home></Home>

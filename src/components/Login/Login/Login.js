@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
-import { UserContext } from '../../App';
+import { UserContext } from '../../../App';
 import { useHistory, useLocation } from 'react-router-dom';
-import LoginBg from '../../images/loginBg.png';
+import LoginBg from '../../../images/loginBg.png';
 
 const Login = () => {
   const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -55,7 +55,7 @@ const Login = () => {
             <label htmlFor="" className="text-danger">Forgot your password?</label>
           </div>
           <div className="from-group mt-5">
-            <button onClick={handleGoogleSignIn}>Google Sign in</button>
+            <button className="btn btn-brand" onClick={handleGoogleSignIn}>Google Sign in</button>
           </div>
         </div>
         <div className="col-md-6 d-none d-md-block align-self-end">
