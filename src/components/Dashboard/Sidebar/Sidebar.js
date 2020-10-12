@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt, faCalendar, faGripHorizontal, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 import { UserContext } from '../../../App';
 
@@ -11,7 +11,7 @@ const Sidebar = () => {
     const [isDoctor, setIsDoctor] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/isDoctor', {
+        fetch('https://salty-plateau-71286.herokuapp.com/isDoctor', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ email: loggedInUser.email })
@@ -26,6 +26,11 @@ const Sidebar = () => {
                 <li>
                     <Link to="/dashboard" className="text-white">
                         <FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/" className="text-white">
+                        <FontAwesomeIcon icon={faHome} /> <span>Home</span>
                     </Link>
                 </li>
                 {isDoctor && <div>
