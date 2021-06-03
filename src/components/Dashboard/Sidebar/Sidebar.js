@@ -9,6 +9,8 @@ import { UserContext } from '../../../App';
 const Sidebar = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [isDoctor, setIsDoctor] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [isStaff, setIsStaff] = useState(false);
 
     useEffect(() => {
         fetch('https://salty-plateau-71286.herokuapp.com/isDoctor', {
@@ -33,30 +35,26 @@ const Sidebar = () => {
                         <FontAwesomeIcon icon={faHome} /> <span>Home</span>
                     </Link>
                 </li>
+                <li>
+                    <Link to="/register-patient" className="text-white">
+                        <FontAwesomeIcon icon={faHome} /> <span>Register Patient</span>
+                    </Link>
+                </li>
+                
                 {isDoctor && <div>
                     <li>
                         <Link to="/allPatients" className="text-white">
-                            <FontAwesomeIcon icon={faCalendar} /> <span>Appointments</span>
+                            <FontAwesomeIcon icon={faCalendar} /> <span>Create Branch</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/patient" className="text-white">
-                            <FontAwesomeIcon icon={faUsers} /> <span>Patients</span>
+                            <FontAwesomeIcon icon={faUsers} /> <span>Create Staff</span>
                         </Link>
                     </li>
                     <li>
                         <Link to="/prescriptions" className="text-white">
-                            <FontAwesomeIcon icon={faFileAlt} /> <span>Prescriptions</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/addDoctor" className="text-white" >
-                            <FontAwesomeIcon icon={faUserPlus} /> <span>Add Doctor</span>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/doctor/setting" className="text-white" >
-                            <FontAwesomeIcon icon={faCog} /> <span>Settings</span>
+                            <FontAwesomeIcon icon={faFileAlt} /> <span>Create Doctors</span>
                         </Link>
                     </li>
                 </div>}

@@ -1,14 +1,23 @@
-.sidebar{
-    background-image: linear-gradient(40deg, #19d3ae,#0fcfec);
+.sidebar {
+    background-image: linear-gradient(40deg, #19d3ae, #0fcfec);
     position: fixed;
 }
-.sidebar li{
+
+.sidebar li {
     margin-bottom: 2em;
 }
-.sidebar li:hover span{
+
+.sidebar li:hover span {
     display: inline-block;
-    transform: translate(5px);
+    transform: translate(2px);
 }
-.sidebar svg{
+
+.sidebar svg {
     margin-right: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        position: initial
+    }
 }
