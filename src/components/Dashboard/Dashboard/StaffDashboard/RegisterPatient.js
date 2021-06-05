@@ -8,7 +8,8 @@ const RegisterPatient = () => {
     const patientData = {
         name: name,
         email: email,
-        phone: phone
+        phone: phone,
+        date: new Date()
     }
     const send = (e) => {
         e.preventDefault();
