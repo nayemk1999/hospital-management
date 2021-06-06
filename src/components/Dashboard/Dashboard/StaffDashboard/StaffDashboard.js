@@ -51,7 +51,7 @@ const StaffDashboard = () => {
                         }
                     </tbody>
                 </table>
-                <h2 className="fw-bold mt-5 text-center" style={{ color: 'black' }}>Total Your Staff : <span className='text-danger'>{patients.length}</span></h2>
+                <h2 className="fw-bold mt-5 text-center" style={{ color: 'black' }}>Total Patients: <span className='text-danger'>{patients.length}</span></h2>
                 </div>
             </div>
         </section>
