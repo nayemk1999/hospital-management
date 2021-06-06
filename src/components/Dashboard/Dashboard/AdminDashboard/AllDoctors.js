@@ -17,6 +17,19 @@ const AllDoctors = () => {
             })
     }, [])
 
+    const deletedDoctor = (id) => {
+        const url = `http://localhost:3002/doctor-delete/${id}`
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('SuccessFully Delete Doctor from Database.')
+                }
+            })
+    }
+
     return (
         <section>
             <div className="row">
@@ -41,8 +54,8 @@ const AllDoctors = () => {
                                         <td>{(new Date(doctor.date).toDateString('dd/MM/yyyy'))}</td>
                                         <td>
                                             <Link to='/register-doctor'><button type="button" class="mr-2 btn btn-danger">Add</button></Link>
+                                            <button onClick={() => deletedDoctor(doctor._id)} type="button" class="mr-2 btn btn-danger">Delete</button>
                                             <button type="button" class="mr-2 btn btn-danger">Update</button>
-                                            <button type="button" class="mr-2 btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                 )

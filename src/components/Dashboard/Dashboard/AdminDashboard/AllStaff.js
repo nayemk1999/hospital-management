@@ -17,6 +17,19 @@ const AllStaffs = () => {
             })
     }, [])
 
+    const deletedStaff = (id) => {
+        const url = `http://localhost:3002/staff-delete/${id}`
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('SuccessFully Delete Staff from Database.')
+                }
+            })
+    }
+
     return (
         <section>
             <div className="row">
@@ -35,14 +48,14 @@ const AllStaffs = () => {
                         </thead>
                         <tbody>
                             {loading && staffs.length > 0 ?
-                                staffs.map(doctor =>
+                                staffs.map(staff =>
                                     <tr class="table-success">
-                                        <td>{doctor.name}</td>
-                                        <td>{(new Date(doctor.date).toDateString('dd/MM/yyyy'))}</td>
+                                        <td>{staff.name}</td>
+                                        <td>{(new Date(staff.date).toDateString('dd/MM/yyyy'))}</td>
                                         <td>
-                                            <Link to='/register-doctor'><button type="button" class="mr-2 btn btn-danger">Add</button></Link>
+                                            <Link to='/register-staff'><button type="button" class="mr-2 btn btn-danger">Add</button></Link>
+                                            <button onClick={() => deletedStaff(staff._id)} type="button" class="mr-2 btn btn-danger">Delete</button>
                                             <button type="button" class="mr-2 btn btn-danger">Update</button>
-                                            <button type="button" class="mr-2 btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                 )
