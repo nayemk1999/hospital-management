@@ -7,9 +7,9 @@ const AllPatients = () => {
     const [loading, setLoading] = useState(false);
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const [patients, setAllPatients] = useState([]);
-
+    
     useEffect(() => {
-        fetch('http://localhost:3002/all-patients')
+        fetch('https://hospital-management-server.herokuapp.com/all-patients')
             .then(res => res.json())
             .then(data => {
                 setAllPatients(data)

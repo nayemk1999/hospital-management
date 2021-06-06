@@ -13,7 +13,7 @@ const RegisterPatient = () => {
     }
     const send = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3002/register-patient', {
+        fetch('https://hospital-management-server.herokuapp.com/register-patient', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(patientData)

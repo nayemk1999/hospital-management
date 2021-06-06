@@ -14,7 +14,7 @@ const AddAdmin = () => {
             email: adminEmail,
             addDate: new Date()
         }
-        fetch('http://localhost:3002/add-admin', {
+        fetch('https://hospital-management-server.herokuapp.com/add-admin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newAdmin)

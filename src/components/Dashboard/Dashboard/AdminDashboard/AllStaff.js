@@ -9,7 +9,7 @@ const AllStaffs = () => {
     const [staffs, setAllStaffs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3002/all-doctors')
+        fetch('https://hospital-management-server.herokuapp.com/all-doctors')
             .then(res => res.json())
             .then(data => {
                 setAllStaffs(data)
@@ -18,7 +18,7 @@ const AllStaffs = () => {
     }, [])
 
     const deletedStaff = (id) => {
-        const url = `http://localhost:3002/staff-delete/${id}`
+        const url = `https://hospital-management-server.herokuapp.com/staff-delete/${id}`
         fetch(url, {
             method: 'DELETE'
         })
