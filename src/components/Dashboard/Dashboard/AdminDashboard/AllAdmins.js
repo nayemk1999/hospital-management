@@ -9,7 +9,7 @@ const AllAdmins = () => {
     const [admins, setAllAdmins] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3002/all-admins')
+        fetch('https://hospital-management-server.herokuapp.com/all-admins')
             .then(res => res.json())
             .then(data => {
                 setAllAdmins(data)
@@ -17,6 +17,18 @@ const AllAdmins = () => {
             })
     }, [])
 
+    const deletedAdmin = (id) => {
+        const url = `https://hospital-management-server.herokuapp.com/admin-delete/${id}`
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    alert('SuccessFully Delete Admin from Database.')
+                }
+            })
+    }
     return (
         <section>
             <div className="row">
@@ -40,9 +52,9 @@ const AllAdmins = () => {
                                         <td>{admin.name}</td>
                                         <td>{(new Date(admin.date).toDateString('dd/MM/yyyy'))}</td>
                                         <td>
-                                            <Link to='/register-doctor'><button type="button" class="mr-2 btn btn-danger">Add</button></Link>
+                                            <Link to='/register-admin'><button type="button" class="mr-2 btn btn-danger">Add</button></Link>
+                                            <button onClick={() => deletedAdmin(admin._id)} type="button" class="mr-2 btn btn-danger">Delete</button>
                                             <button type="button" class="mr-2 btn btn-danger">Update</button>
-                                            <button type="button" class="mr-2 btn btn-danger">Delete</button>
                                         </td>
                                     </tr>
                                 )

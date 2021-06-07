@@ -79,7 +79,7 @@ export default function RegisterDoctor() {
         // ..
       });
 
-      fetch('http://localhost:3002/add-doctors', {
+      fetch('https://hospital-management-server.herokuapp.com/add-doctors', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(doctorsData)

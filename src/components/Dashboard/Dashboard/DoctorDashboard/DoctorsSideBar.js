@@ -23,7 +23,7 @@ const DoctorsSidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/all-patients" className="text-white">
+                    <Link to="/registered-patients" className="text-white">
                         <FontAwesomeIcon icon={faUsers} /> <span>All Patients</span>
                     </Link>
                 </li>

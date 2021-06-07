@@ -16,6 +16,9 @@ import AllStaffs from './components/Dashboard/Dashboard/AdminDashboard/AllStaff'
 import AllAdmins from './components/Dashboard/Dashboard/AdminDashboard/AllAdmins';
 import StaffDashboard from './components/Dashboard/Dashboard/StaffDashboard/StaffDashboard';
 import PrivateRoute from '../src/components/Login/PrivateRoute/PrivateRoute'
+import AddAdmin from './components/Dashboard/Dashboard/AdminDashboard/AddAdmin';
+import DoctorDashBoard from './components/Dashboard/Dashboard/DoctorDashboard/DoctorDashBoard';
+import AllPatients from './components/Dashboard/Dashboard/DoctorDashboard/AllPatients';
 
 export const UserContext = createContext();
 
@@ -40,12 +43,12 @@ function App() {
           <Route path="/login">
             <LoginPage />
           </Route>
-          <PrivateRoute path="/register-staff">
+          <Route path="/register-staff">
             <RegisterStaff />
-          </PrivateRoute>
-          <PrivateRoute path="/register-doctor">
+          </Route>
+          <Route path="/register-doctor">
             <RegisterDoctor />
-          </PrivateRoute>
+          </Route>
           <PrivateRoute path="/all-doctors">
             <AllDoctors />
           </PrivateRoute>
@@ -55,8 +58,14 @@ function App() {
           <PrivateRoute path="/all-admins">
             <AllAdmins />
           </PrivateRoute>
+          <Route path="/add-admin">
+            <AddAdmin/>
+          </Route>
           <PrivateRoute path="/all-patients">
-            <StaffDashboard patients={'patients'} />
+            <StaffDashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/registered-patients">
+            <AllPatients />
           </PrivateRoute>
         </Switch>
       </Router>

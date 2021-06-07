@@ -83,7 +83,7 @@ export default function RegisterStaff() {
         // ..
       });
 
-      fetch('http://localhost:3002/add-staff', {
+      fetch('https://hospital-management-server.herokuapp.com/add-staff', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify(staffData)
